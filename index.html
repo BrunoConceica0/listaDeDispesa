@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style/styles.css">
+  <title>Lista de Compras para o Supermercado</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Lista de Supermercado</h1>
+
+    <div class="input-group">
+      <input type="text" id="itemInput" placeholder="Digite o item">
+      <button id="addButton">Adicionar</button>
+    </div>
+
+    <ul id="container-list">
+      <!-- Itens adicionados aparecerão aqui -->
+      <li class="list-box" data-list="itens">
+        <!-- Se não houver itens, exiba esta mensagem -->
+        <div class="list-empty">
+          <p class="list-empty_title">Não há produtos nesta lista.</p>
+        </div>
+      </li>
+
+    </ul>
+
+  </div>
+</body>
+<script type="module" src="./script/index.js"></script>
+
+</html>
