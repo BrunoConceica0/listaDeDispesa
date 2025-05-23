@@ -1,14 +1,14 @@
 import checkEmpty from "./checkEmptyList.js";
 
-function removeItem(listProduto, listItem) {
-  const removeBtn = document.createElement("buttom");
+function removeItem(listProduct, listItem) {
+  const removeBtn = document.createElement("button");
   removeBtn.classList.add("remove-btn");
-  removeBtn.innerHTML = "x";
+  removeBtn.innerHTML = "Remover";
 
   removeBtn.addEventListener("click", () => {
-    listItem.removeChild(listProduto);
+    listItem.removeChild(listProduct);
     checkEmpty(listItem);
   });
-  listProduto.appendChild(removeBtn);
+  listProduct.appendChild(removeBtn);
 }
 export default removeItem;

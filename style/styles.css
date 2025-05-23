@@ -13,7 +13,7 @@ body {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  width: 400px;
 }
 
 h1 {
@@ -58,15 +58,30 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: start;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 .list-item {
   display: flex;
-  margin: 0 2rem;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
-  gap: 1rem;
+  justify-content: space-between;
+  flex-shrink: 1;
+  padding: 5px 15px;
+}
+.list-item:nth-child(2n) {
+  background-color: #cfcfcf;
+}
+.product_item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.item_text {
+  width: 100%;
+  word-break: break-word;
+  /* overflow-wrap: break-word;
+  white-space: normal; */
+  padding-left: 10px;
 }
 .completed {
   text-decoration: line-through;
@@ -74,21 +89,28 @@ button:hover {
 }
 
 .checkbox-item[type="checkbox"] {
-  width: 14px;
-  height: 14px;
-  cursor: pointer;
-}
-.remove-btn {
-  background: #dc3545;
-  border: none;
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  cursor: pointer;
-}
+  appearance: none; /* remove aparência nativa */
+  -webkit-appearance: none;
 
-.remove-btn:hover {
-  background: #c82333;
+  border: 2px solid #28a745;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  position: relative;
+}
+.checkbox-item[type="checkbox"]:checked::after {
+  content: "✔";
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #28a745;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .list-empty_title {
   text-align: center;
@@ -97,9 +119,8 @@ button:hover {
   font-weight: bold;
 }
 .remove-btn {
-  background: transparent;
-  border: 2px solid #dc3545;
-  color: #dc3545;
+  background: #fd0a37;
+  color: white;
   padding: 6px 10px;
   border-radius: 6px;
   cursor: pointer;
@@ -107,9 +128,9 @@ button:hover {
   font-weight: bold;
   font-size: 14px;
   transition: all 0.3s ease;
+  font-size: 0.725rem;
 }
 
 .remove-btn:hover {
-  background: #dc3545;
-  color: white;
+  background: #df082f;
 }

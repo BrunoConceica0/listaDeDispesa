@@ -1,14 +1,15 @@
 import checkEmpty from "./checkEmptyList.js";
 import removeItem from "./removeItem.js";
+import checkboxItem from "./checkbox.js";
 const btn = document.getElementById("addButton");
 const listItem = document.querySelector("[data-list='itens']");
-console.log(listItem);
-const containerItens = document.getElementById("container-list");
 
 let checkboxId = 1;
 btn.addEventListener("click", (event) => {
   event.preventDefault();
-  const listProduto = document.createElement("div");
+  const listProduct = document.createElement("div");
+  const product = document.createElement("div");
+
   const itemInput = document.getElementById("itemInput");
   const checkbox = document.createElement("input");
   const newItem = document.createElement("p");
@@ -16,26 +17,24 @@ btn.addEventListener("click", (event) => {
   checkbox.type = "checkbox";
   checkbox.id = `checkbox-${checkboxId++}`;
 
-  checkEmpty(listItem);
   //adicionando o item na lista
+
   if (itemInput.value === "") {
     alert("Digite um item");
   } else {
     newItem.innerHTML = itemInput.value;
-    listProduto.appendChild(checkbox);
-    listProduto.appendChild(newItem);
-    listItem.appendChild(listProduto);
-    listProduto.classList.add("list-item");
-    // containerItens.style.display = "block";
+    product.appendChild(checkbox);
+    product.appendChild(newItem);
+    newItem.classList.add("item_text");
+    listProduct.appendChild(product);
+    product.classList.add("product_item");
+    listProduct.classList.add("list-item");
+    listItem.appendChild(listProduct);
+    checkEmpty(listItem);
   }
   //Vericar se o checkbox foi marcado
-  checkbox.addEventListener("change", () => {
-    if (checkbox.checked) {
-      newItem.classList.add("completed");
-    } else {
-      newItem.classList.remove("completed");
-    }
-  });
+  checkboxItem(checkbox, newItem);
+  removeItem(listProduct, listItem);
+
   itemInput.value = "";
-  removeItem(listProduto, listItem);
 });
